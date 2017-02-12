@@ -9,10 +9,8 @@
     <name>Vibration App</name>
 
     <description>
-        Vibration example app.
+        Pulse
     </description>
 
-    <preference name="phonegap-version" value="6.5.0" /> 
-
-    <gap:plugin name="cordova-plugin-vibration" />
+    <gap:plugin name="org.apache.cordova.core.vibration" />
 </widget>
