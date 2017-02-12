@@ -12,5 +12,5 @@
         Pulse
     </description>
 
-    <gap:plugin name="org.apache.cordova.core.vibration" spec="git://git.apache.org/cordova-plugin-vibration.git" />
+    <gap:plugin name="org.apache.cordova.core.vibration" spec="^2.1.3" " />
 </widget>
