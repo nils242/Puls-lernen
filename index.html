@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="app.min.css">
     <style>
-      /* TODO */
-    </style>
+ document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}    </style>
   </head>
 
   <body>
@@ -33,9 +35,8 @@ App.controller('home', function (page) {
   $(page)
     .find('.app-button')
     .on('click', function () {
-alert('button was clicked!');
-navigator.vibrate(400,50,500,600); 
-alert('vibration fired!');    });
+      alert('button was clicked!');
+navigator.vibrate(400,50,5,600); alert('vibration fired!');    });
 });
       App.controller('page2', function (page) {
         // put stuff here
