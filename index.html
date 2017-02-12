@@ -32,7 +32,8 @@ App.controller('home', function (page) {
     .find('.app-button')
     .on('click', function () {
       alert('button was clicked!');
-navigator.vibrate(400,50,5,600); alert('vibration fired!');    });
+navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+    alert('vibration fired!');    });
 });
       App.controller('page2', function (page) {
         // put stuff here
