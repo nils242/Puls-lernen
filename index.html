@@ -13,11 +13,13 @@
     <div class="app-page" data-page="home">
       <div class="app-topbar">
         <div class="app-title">Pulsmessung üben</div>
+          <div class="app-button left">Start</div>
+ <div class="app-button right">Stop</div>
       </div>
       <div class="app-content">
         <div class="app-section">
           <div class="app-button">Start</div>
- <div class="app-button">Stop</div>
+<div name="ergebnis"></div>
        </div>
       </div>
     </div>
@@ -25,10 +27,16 @@
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
     <script>
-      App.controller('home', function (page) {
-        // put stuff here
-      });
-
+App.controller('home', function (page) {
+  // this runs whenever a 'home' page is loaded
+  // 'page' is the HTML app-page element
+  $(page)
+    .find('.app-button')
+    .on('click', function () {
+alert('button was clicked!');
+navigator.vibrate(400,50,500,600); 
+alert('vibration fired!');    });
+});
       App.controller('page2', function (page) {
         // put stuff here
       });
