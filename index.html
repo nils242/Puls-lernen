@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="app.min.css">
     <style>
-
 }    </style>
   </head>
 
@@ -16,10 +15,10 @@
       </div>
       <div class="app-content">
         <div class="app-section">
-          <div class="app-button">Start / Stop</div></div>
+          <div class="app-button" id="startbutton">Start</div></div>
+        <div class="app-section">
+          <div class="app-button" id="stopbutton">Stop</div></div>
 <div class="feld1"></div>
-<div class="feld2"></div>
-<div class="feld3"></div>
 <div><img src="schrift.png" alt="eine grafik"></div> 
        
       </div>
@@ -32,19 +31,21 @@ App.controller('home', function (page) {
   // this runs whenever a 'home' page is loaded
   // 'page' is the HTML app-page element
   $(page)
-    .find('.app-button')
+    .find('#startbutton')
     .on('click', function () {
 navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
     alert('vibration fired!');
-     $(page).find('.feld1').text("Das isses");
+   $(page).find('.feld1').text("");
 App.load('.feld1');
-  });
+   });
+  $(page)
+    .find('#stopbutton')
+    .on('click', function () {
+alert('vibration stopped!'); 
+   $(page).find('.feld1').text("Umdrehen");
+App.load('.feld1');
+   });
 });
-     
-      App.controller('page2', function (page) {
-        // put stuff here
-      });
-
       try {
         App.restore();
       } catch (err) {
