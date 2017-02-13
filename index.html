@@ -39,16 +39,50 @@ function pulsfrequenz()
 var pfmin = 45;
 var pfmax = 130;
 pf = Math.floor(Math.random() * (pfmax - pfmin + 1)) + pfmin;
-alert('Pulsfrequenz: ' + pf + '! Läuft!'); 
+if (pf >= 100){
+   pfrequenz = "Tachykardie (> 100 1/min)";
+}
+else if (pf <= 60){
+   pfrequenz = "Bradykardie (< 60 1/min)";
+}
+else if (pf > 60 && pf < 80){
+   pfrequenz = "Normokardie (60 - 80 1/min)";
+}
+else {
+   pfrequenz = "Erhöhter Puls (80 - 100 1/min)";
+}
+Number( pf )  
+pattquot = (60000 - (60 * pf)) / pf
+alert('Pulsfrequenz: ' + pf + '! Das ist: ' + pfrequenz + '! ! Der Quotient: ' + pattquot + '! Läuft!'); 
 };
 
 function pulspattern()
 {
 var pattmin = 1;
-var pattmax = 6;
+var pattmax = 7;
 patt = Math.floor(Math.random() * (pattmax - pattmin + 1)) + pattmin;
-
-alert('Pattern: ' + patt + '! Läuft!'); 
+if (patt == 1) {
+prhythmus = "Extrasystole (ohne kompensatorische Pause)"
+vibrpattern = '60, ' + pattquot + ', 60, patt'   
+}
+else if (patt == 2) {
+prhythmus = "Extrasystole (mit kompensatorischer Pause)"
+vibrpattern = '60, ' + pattquot + ', 60, patt' 
+}
+else if (patt == 3) {
+prhythmus = "Pulsus Bigeminus"
+vibrpattern = '60, ' + pattquot + ', 60, patt'  
+}  
+else if (patt == 4) {
+prhythmus = "Arrhythmie"
+vibrpattern = '60, ' + pattquot + ', 60, patt'    
+}
+else {
+prhythmus = "Ruhepuls (Sinusrhythmus)"
+vibrpattern = '60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ''
+  
+}    
+alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vibrpattern + ' Läuft!'); 
 };
 
   $(page)
@@ -56,7 +90,7 @@ alert('Pattern: ' + patt + '! Läuft!');
     .on('click', function () {
 pulsfrequenz()
 pulspattern()
-navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500], 100);
+navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
     alert('Pulsfrequenz: ' + pf + '! vibration fired!');
    $(page).find('.feld1').text("");
    $(page).find('.feld2').text(pf);
@@ -65,6 +99,7 @@ navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500
   $(page)
     .find('#stopbutton')
     .on('click', function () {
+    navigator.vibrate([]);
 alert('Pulsfrequenz: ' + pf + '! vibration stopped!'); 
    $(page).find('.feld1').text("Umdrehen");
 
