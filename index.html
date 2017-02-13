@@ -16,12 +16,12 @@
       </div>
       <div class="app-content">
         <div class="app-section">
-          <div class="app-button">Start</div>
+          <div class="app-button">Start</div></div>
 <div name="feld1"></div>
 <div name="feld2"></div>
 <div name="feld3"></div>
 <div><img src="schrift.png" alt="eine grafik"></div> 
-       </div>
+       
       </div>
     </div>
 
@@ -34,12 +34,9 @@ App.controller('home', function (page) {
   $(page)
     .find('.app-button')
     .on('click', function () {
-      alert('button was clicked!');
-navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500]),
-
-setTimeout(function(){ alert("Hello"); }, 1000);})
-setTimeout(function(){ alert("Hello"); }, 1000);})
-setTimeout(function(){ alert("Hello"); }, 1000);})
+setTimeout(function(){ alert("Timeout zuende"); }, 1000);})   
+navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
+    alert('vibration fired!');    });
 });
       App.controller('page2', function (page) {
         // put stuff here
