@@ -52,7 +52,7 @@ else {
    pfrequenz = "Erhöhter Puls (80 - 100 1/min)";
 }
 Number( pf )  
-pattquot = (60000 - (60 * pf)) / pf
+pattquot = Math.round((60000 - (60 * pf)) / pf);
 alert('Pulsfrequenz: ' + pf + '! Das ist: ' + pfrequenz + '! ! Der Quotient: ' + pattquot + '! Läuft!'); 
 };
 
@@ -63,23 +63,34 @@ var pattmax = 7;
 patt = Math.floor(Math.random() * (pattmax - pattmin + 1)) + pattmin;
 if (patt == 1) {
 prhythmus = "Extrasystole (ohne kompensatorische Pause)"
-vibrpattern = '60, ' + pattquot + ', 60, patt'   
+pattquotb = Math.round(pattquot - 40 / 1.8);
+pattquotc = Math.round(pattquot - 40 / 2.25);  
+vibrpattern = '60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquotb + ', 40, ' + pattquotc + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + '';
 }
 else if (patt == 2) {
 prhythmus = "Extrasystole (mit kompensatorischer Pause)"
-vibrpattern = '60, ' + pattquot + ', 60, patt' 
+pattquotb = Math.round(pattquot - 40 / 1.8);
+pattquotc = Math.round(pattquot - 40 / 2.25);
+pattquotd = Math.round(pattquot + pattquotc);  
+vibrpattern = '60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquotb + ', 40, ' + pattquotd + ', 60, ' + pattquot + '';
 }
 else if (patt == 3) {
 prhythmus = "Pulsus Bigeminus"
-vibrpattern = '60, ' + pattquot + ', 60, patt'  
-}  
+pattquote = Math.round(pattquot - 40 / 4.5);
+pattquotf = Math.round(pattquot - 40 / 1.2857142857142); 
+vibrpattern = '60, ' + pattquote + ', 40, ' + pattquotf + ', ';
+}
 else if (patt == 4) {
 prhythmus = "Arrhythmie"
-vibrpattern = '60, ' + pattquot + ', 60, patt'    
+pattquotb = Math.round(pattquot - 40 / 1.8);
+pattquotc = Math.round(pattquot - 40 / 2.25);
+pattquote = Math.round(pattquot - 40 / 4.5);
+pattquotf = Math.round(pattquot - 40 / 1.2857142857142);  
+vibrpattern = '60, ' + pattquotb + ', 60, ' + pattquotf + ', 60, ' + pattquotc + ', 60, ' + pattquotc + ', 60, ' + pattquote + ', 60, ' + pattquotb + ', 60, ' + pattquotf + '';     
 }
 else {
 prhythmus = "Ruhepuls (Sinusrhythmus)"
-vibrpattern = '60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ''
+vibrpattern = '60, ' + pattquot + ', ';
   
 }    
 alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vibrpattern + ' Läuft!'); 
