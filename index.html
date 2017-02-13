@@ -33,7 +33,7 @@ App.controller('home', function (page) {
   $(page)
     .find('#startbutton')
     .on('click', function () {
-navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500], 100);
+navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
     alert('vibration fired!');
    $(page).find('.feld1').text("");
 App.load('.feld1');
@@ -41,6 +41,7 @@ App.load('.feld1');
   $(page)
     .find('#stopbutton')
     .on('click', function () {
+    navigator.vibrate([0])
 alert('vibration stopped!'); 
    $(page).find('.feld1').text("Umdrehen");
 App.load('.feld1');
