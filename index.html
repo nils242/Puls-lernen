@@ -35,8 +35,11 @@ App.controller('home', function (page) {
     .find('.app-button')
     .on('click', function () {
       alert('button was clicked!');
-navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
-    alert('vibration fired!');    });
+navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500]),
+setTimeout(function(){ $(page).find('.feld1').text("Umdrehen"); }, 1000);})
+setTimeout(function(){ alert("Hello"); }, 1000);})
+setTimeout(function(){ alert("Hello"); }, 1000);})
+setTimeout(function(){ alert("Hello"); }, 1000);})
 });
       App.controller('page2', function (page) {
         // put stuff here
