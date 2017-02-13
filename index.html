@@ -19,7 +19,8 @@
         <div class="app-section">
           <div class="app-button" id="stopbutton">Stop</div></div>
 <div class="feld1"></div>
-<div><img src="schrift.png" alt="eine grafik"></div> 
+<div><img src="schrift.png" alt="eine grafik"></div>
+<div class="feld2"></div>
        
       </div>
     </div>
@@ -27,24 +28,46 @@
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
     <script>
+
 App.controller('home', function (page) {
   // this runs whenever a 'home' page is loaded
   // 'page' is the HTML app-page element
+
+
+function pulsfrequenz()
+{
+var pfmin = 45;
+var pfmax = 130;
+pf = Math.floor(Math.random() * (pfmax - pfmin + 1)) + pfmin;
+alert('Pulsfrequenz: ' + pf + '! Läuft!'); 
+};
+
+function pulspattern()
+{
+var pattmin = 1;
+var pattmax = 6;
+patt = Math.floor(Math.random() * (pattmax - pattmin + 1)) + pattmin;
+
+alert('Pattern: ' + patt + '! Läuft!'); 
+};
+
   $(page)
     .find('#startbutton')
     .on('click', function () {
-navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
-    alert('vibration fired!');
+pulsfrequenz()
+pulspattern()
+navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500], 100);
+    alert('Pulsfrequenz: ' + pf + '! vibration fired!');
    $(page).find('.feld1').text("");
-App.load('.feld1');
+   $(page).find('.feld2').text(pf);
+
    });
   $(page)
     .find('#stopbutton')
     .on('click', function () {
-    navigator.vibrate([0])
-alert('vibration stopped!'); 
+alert('Pulsfrequenz: ' + pf + '! vibration stopped!'); 
    $(page).find('.feld1').text("Umdrehen");
-App.load('.feld1');
+
    });
 });
       try {
