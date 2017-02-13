@@ -16,7 +16,7 @@
       </div>
       <div class="app-content">
         <div class="app-section">
-          <div class="app-button">Start</div></div>
+          <div class="app-button">Start / Stop</div></div>
 <div class="feld1"></div>
 <div class="feld2"></div>
 <div class="feld3"></div>
@@ -34,10 +34,11 @@ App.controller('home', function (page) {
   $(page)
     .find('.app-button')
     .on('click', function () {
-   $(page).find('.feld1').text("Umdrehen");
-App.load('.feld1');
 navigator.vibrate([50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 500, 50, 5000, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500, 100, 500]);
-    alert('vibration fired!');    });
+    alert('vibration fired!');
+     $(page).find('.feld1').text("Das isses");
+App.load('.feld1');
+  });
 });
      
       App.controller('page2', function (page) {
