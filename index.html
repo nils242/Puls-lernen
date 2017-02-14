@@ -11,17 +11,17 @@
       <div class="app-topbar" bgcolor="white">
         <div class="app-title">Pulsmessung üben</div>
       </div>
-      <div class="app-content" style="color:darkgrey;">
+      <div class="app-content">
         <div class="app-section" style="color:darkgrey;">
-          <div class="app-button" id="startbutton" style="color:black;">Start</div></div>
+          <div class="app-button green" id="startbutton" style="color:black;">Start</div></div>
         <div class="app-section" style="color:darkgrey;">
-          <div class="app-button" id="stopbutton" style="color:black;">Stop</div></div>
-	      <div class="app-section"><div max-width="46em" align="center" width="100%" height="100%">www.<img src="schrift.png" width="100%" height="100%">.de</div></div>
+          <div class="app-button red" id="stopbutton" style="color:black;">Stop</div></div>
 <div class="app-section">	      
-<div class="feld1" align="center"></div>
-<div class="feld2" align="center"></div>
-<div class="feld3" align="center"></div>	
-<div class="feld4" align="center"></div>
+<div class="feld1" align="center">  </div>
+<div class="feld2" align="center">  </div>
+<div class="feld3" align="center">  </div>	
+<div class="feld4" align="center">  </div></div>
+<div class="app-section"><div align="center"><img src="schrift.png">www.nilswommelsdorf.de</div></div>
 
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
@@ -60,6 +60,7 @@ var pattmax = 6;
 patt = Math.floor(Math.random() * (pattmax - pattmin + 1)) + pattmin;
 if (patt == 1) {
 prhythmus = "Extrasystole (ohne kompensatorische Pause)"
+pascii = "|.....|.....|..&nodot;...|.....|"
 pattquotb = Math.round((pattquot - 40) / 1.8);
 pattquotc = Math.round((pattquot - 40) / 2.25);  
 vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquot, 60, pattquot, 60, pattquot];
@@ -67,6 +68,7 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquotb +
 }
 else if (patt == 2) {
 prhythmus = "Extrasystole (mit kompensatorischer Pause)"
+pascii = "|.....|.....|..&nodot;.........|"	
 pattquotb = Math.round((pattquot - 40) / 1.8);
 pattquotc = Math.round((pattquot - 40) / 2.25);
 pattquotd = Math.round(pattquot + pattquotc);  
@@ -75,6 +77,7 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
 }
 else if (patt == 3) {
 prhythmus = "Pulsus Bigeminus"
+pascii = |.&nodot;....|.&nodot;....|.&nodot;....|.&nodot;....|	
 pattquote = Math.round((pattquot - 40) / 4.5);
 pattquotf = Math.round((pattquot - 40) / 1.2857142857142); 
 vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquote, 40, pattquotf, 60, pattquote, 40, pattquotf, 60, pattquote, 40, pattquotf];
@@ -82,6 +85,7 @@ patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquote + 40 + pattquot
 }
 else if (patt == 4) {
 prhythmus = "Arrhythmie"
+pascii = "|..|.....|....|..|.......|....|.|"	
 pattquotb = Math.round((pattquot - 40) / 1.8);
 pattquotc = Math.round((pattquot - 40) / 2.25);
 pattquotd = Math.round(pattquot + pattquotc); 	
@@ -92,10 +96,11 @@ patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquot + 60 + pattquot 
 }
 else {
 prhythmus = "Ruhepuls (Sinusrhythmus)"
+pascii = "|.....|.....|.....|.....|"	
 vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot];
 patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot
 }    
-alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '! Länge: ' + patternlength + '!'); 
+alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '! Länge: ' + patternlength + '! Ascii: ' + pascii + ''); 
 };
  
 
@@ -105,7 +110,6 @@ alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '! Länge: ' + patternl
 
 		var vibrateInterval;
 		function startPeristentVibrate(level, interval) {
-						alert('Pattern ist: ' + vibrpattern + '!/n level ist:  ' + level + '/n Persistent Vibration!')
 			vibrateInterval = setInterval(function() {
 				startVibrate(level);
 			}, interval);
@@ -122,21 +126,20 @@ alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '! Länge: ' + patternl
 pulsfrequenz()
 pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
-    alert('Pulsfrequenz: ' + pf + '! /n Pattern: ' + vibrpattern + '! /n vibration fired!');
-   $(page).find('.feld1').text("");
-   $(page).find('.feld2').text("");
-   $(page).find('.feld3').text("");
-   $(page).find('.feld4').text("");	  
+   $(page).find('.feld1').text(" ");
+   $(page).find('.feld2').text(" ");
+   $(page).find('.feld3').text(" ");
+   $(page).find('.feld4').text(" ");	  
    });
   $(page)
     .find('#stopbutton')
     .on('click', function () {
 stopVibrate();
 alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
-   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
+   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min').css('font-weight', 'bold');
    $(page).find('.feld2').text('' + pfrequenz + '');  
-   $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '');
-   $(page).find('.feld4').text('Stimmt`s?');
+   $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '').css('font-weight', 'bold');
+   $(page).find('.feld4').text('' + pascii + ' - Stimmt`s?');
    });
 });
       try {
