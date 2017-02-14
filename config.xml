@@ -5,12 +5,23 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.hello-world"
         version   = "1.0.0">
+        
+<icon src="ldpi.png" platform="android" qualifier="ldpi" />
+<icon src="mdpi.png" platform="android" qualifier="mdpi" />
+<icon src="hdpi.png" platform="android" qualifier="hdpi" />
+<icon src="xhdpi.png" platform="android" qualifier="xhdpi" />
+<icon src="xxhdpi.png" platform="android" qualifier="xxhdpi" />
+<icon src="fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />        
+        
+  <name>Pulsmessung üben</name>
 
-    <name>Vibration App</name>
+  <description>
+      Verschiedene Pulsarten durch Vibration des Smartphones üben
+  </description>
 
-    <description>
-        Pulse
-    </description>
+    <author href="http://www.nilswommelsdorf.de" email="pct@nilswommelsdorf.de">
+        Nils Wommelsdorf
+    </author>
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
 </widget>
