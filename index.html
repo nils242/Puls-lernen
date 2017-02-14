@@ -96,12 +96,28 @@ vibrpattern = '60, ' + pattquot + ', ';
 alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vibrpattern + ' Läuft!'); 
 };
 
+		function startVibrate(level) {
+			navigator.vibrate(level);
+		}
+
+		var vibrateInterval;
+		function startPeristentVibrate(level, interval) {
+			vibrateInterval = setInterval(function() {
+				startVibrate(level);
+			}, interval);
+		}
+		
+		function stopVibrate() {
+			if(vibrateInterval) clearInterval(vibrateInterval);
+			navigator.vibrate(0);
+		}  
+  
   $(page)
     .find('#startbutton')
     .on('click', function () {
 pulsfrequenz()
 pulspattern()
-navigator.vibrate([vibrpattern]);
+startPeristentVibrate(vibrpattern);
     alert('Pulsfrequenz: ' + pf + '! Pattern: ' + vibrpattern + '! vibration fired!');
    $(page).find('.feld1').text("");
    $(page).find('.feld2').text(pf);
