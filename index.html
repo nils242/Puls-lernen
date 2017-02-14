@@ -78,7 +78,7 @@ else if (patt == 3) {
 prhythmus = "Pulsus Bigeminus"
 pattquote = Math.round(pattquot - 40 / 4.5);
 pattquotf = Math.round(pattquot - 40 / 1.2857142857142); 
-vibrpattern = '60, ' + pattquote + ', 40, ' + pattquotf + ', ';
+vibrpattern = '60, ' + pattquote + ', 40, ' + pattquotf + '';
 }
 else if (patt == 4) {
 prhythmus = "Arrhythmie"
@@ -102,7 +102,7 @@ alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vib
 pulsfrequenz()
 pulspattern()
 navigator.vibrate([vibrpattern]);
-    alert('Pulsfrequenz: ' + pf + '! vibration fired!');
+    alert('Pulsfrequenz: ' + pf + '! Pattern: ' + vibrpattern + '! vibration fired!');
    $(page).find('.feld1').text("");
    $(page).find('.feld2').text(pf);
 
