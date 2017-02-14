@@ -4,8 +4,6 @@
     <title>My App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="app.min.css">
-    <style>	    
-</style>
   </head>
 
   <body>
@@ -14,19 +12,16 @@
         <div class="app-title">Pulsmessung üben</div>
       </div>
       <div class="app-content">
-        <div class="app-section">
-          <div class="app-button" id="startbutton">Start</div></div>
-        <div class="app-section">
-          <div class="app-button" id="stopbutton">Stop</div></div>
+        <div class="app-section" style="color:darkgrey;">
+          <div class="app-button" id="startbutton" style="color:black;">Start</div></div>
+        <div class="app-section" style="color:darkgrey;">
+          <div class="app-button" id="stopbutton" style="color:black;">Stop</div></div>
+	      <div class="app-section"><div max-width="46em" align="center">www.<img src="schrift.png" width="100%" height="100%">.de</div></div>
 <div class="app-section">	      
 <div class="feld1" align="center"></div>
 <div class="feld2" align="center"></div>
-<div class="feld3" align="center"></div></div>  
-	      <div class="app-section" background="schrift.png">
-
-       
-      </div>
-    </div>
+<div class="feld3" align="center"></div>	
+<div class="feld4" align="center"></div>
 
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
@@ -131,15 +126,17 @@ startPeristentVibrate(vibrpattern, patternlength);
    $(page).find('.feld1').text("");
    $(page).find('.feld2').text("");
    $(page).find('.feld3').text("");
+   $(page).find('.feld3').text("");	  
    });
   $(page)
     .find('#stopbutton')
     .on('click', function () {
 stopVibrate();
 alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
-   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min (' + pfrequenz + ')');
-   $(page).find('.feld2').text('Pulsrhythmus: ' + prhythmus + '');
-   $(page).find('.feld3').text('Stimmt`s?');
+   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
+   $(page).find('.feld2').text('' + pfrequenz + '');  
+   $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '');
+   $(page).find('.feld4').text('Stimmt`s?');
    });
 });
       try {
