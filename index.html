@@ -33,7 +33,6 @@ App.controller('home', function (page) {
   // this runs whenever a 'home' page is loaded
   // 'page' is the HTML app-page element
 
-
 function pulsfrequenz()
 {
 var pfmin = 45;
@@ -53,7 +52,7 @@ else {
 }
 Number( pf )  
 pattquot = Math.round((60000 - (60 * pf)) / pf);
-alert('Pulsfrequenz: ' + pf + '! Das ist: ' + pfrequenz + '! ! Der Quotient: ' + pattquot + '! Läuft!'); 
+alert('Pulsfrequenz: ' + pf + '! /n Das ist: ' + pfrequenz + '! ! /n Der Quotient: ' + pattquot + '!'); 
 };
 
 function pulspattern()
@@ -90,18 +89,21 @@ vibrpattern = '60, ' + pattquotb + ', 60, ' + pattquotf + ', 60, ' + pattquotc +
 }
 else {
 prhythmus = "Ruhepuls (Sinusrhythmus)"
-vibrpattern = '60, ' + pattquot + ', ';
+vibrpattern = '60, ' + pattquot + '';
   
 }    
-alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vibrpattern + ' Läuft!'); 
+alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '!'); 
 };
+ 
 
 		function startVibrate(level) {
-			navigator.vibrate(level);
+			navigator.vibrate([level]);
+			alert('Pattern ist: ' + vibrpattern + '!/n level ist:  ' + level + '/n Start Vibration!')
 		}
 
 		var vibrateInterval;
 		function startPeristentVibrate(level, interval) {
+						alert('Pattern ist: ' + vibrpattern + '!/n level ist:  ' + level + '/n Persistent Vibration!')
 			vibrateInterval = setInterval(function() {
 				startVibrate(level);
 			}, interval);
@@ -110,15 +112,15 @@ alert('Pattern: ' + patt + '! Das ist: ' + prhythmus + '! Pattern wäre: ' + vib
 		function stopVibrate() {
 			if(vibrateInterval) clearInterval(vibrateInterval);
 			navigator.vibrate(0);
-		}  
-  
+		}  		
+	
   $(page)
     .find('#startbutton')
     .on('click', function () {
 pulsfrequenz()
 pulspattern()
-startPeristentVibrate(vibrpattern);
-    alert('Pulsfrequenz: ' + pf + '! Pattern: ' + vibrpattern + '! vibration fired!');
+startPeristentVibrate(vibrpattern, 10000);
+    alert('Pulsfrequenz: ' + pf + '! /n Pattern: ' + vibrpattern + '! /n vibration fired!');
    $(page).find('.feld1').text("");
    $(page).find('.feld2').text(pf);
 
@@ -126,8 +128,8 @@ startPeristentVibrate(vibrpattern);
   $(page)
     .find('#stopbutton')
     .on('click', function () {
-    navigator.vibrate([]);
-alert('Pulsfrequenz: ' + pf + '! vibration stopped!'); 
+stopVibrate();
+alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
    $(page).find('.feld1').text("Umdrehen");
 
    });
