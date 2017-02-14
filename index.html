@@ -18,10 +18,10 @@
           <div class="app-button red" id="stopbutton" style="color:black;">Stop</div></div>
 <div class="app-section">	      
 <div class="feld1" align="center">  </div>
-<div class="feld2" align="center">  </div>
+<div class="feld2" align="center">Drücken Sie "Start" und messen Sie Pulsfrequenz und -rhythmus anhand der Vibration des Smartphones</div>
 <div class="feld3" align="center">  </div>	
 <div class="feld4" align="center">  </div></div>
-<div class="app-section"><div align="center" onclick="window.open('http://www.nilswommelsdorf.de','_system')"><img src="schrift.png">www.nilswommelsdorf.de</div></div>
+<div class="app-section"><div class="app-button" style="height:100px;color:black;" align="center" onclick="window.open('http://www.nilswommelsdorf.de','_system')"><img src="schrift.png"><div>www.nilswommelsdorf.de</div></div></div>
 
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
@@ -48,7 +48,6 @@ else {
 }
 Number( pf )  
 pattquot = Math.round((60000 - (60 * pf)) / pf);
-alert('Pulsfrequenz: ' + pf + '! /n Das ist: ' + pfrequenz + '! ! /n Der Quotient: ' + pattquot + '!'); 
 };
 function pulspattern()
 {
@@ -97,7 +96,6 @@ pascii = "|.....|.....|.....|.....|.....|....."
 vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot];
 patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot
 }    
-alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '! Länge: ' + patternlength + '! PAscii: ' + pascii + ''); 
 };
  
 		function startVibrate(level) {
@@ -122,7 +120,7 @@ pulsfrequenz()
 pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
    $(page).find('.feld1').text(" ");
-   $(page).find('.feld2').text(" ");
+   $(page).find('.feld2').text("... Pulsübung startet ...");
    $(page).find('.feld3').text(" ");
    $(page).find('.feld4').text(" ");	  
    });
@@ -130,7 +128,6 @@ startPeristentVibrate(vibrpattern, patternlength);
     .find('#stopbutton')
     .on('click', function () {
 stopVibrate();
-alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
    $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min').css('font-weight', 'bold');
    $(page).find('.feld2').text('' + pfrequenz + '');  
    $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '').css('font-weight', 'bold');
