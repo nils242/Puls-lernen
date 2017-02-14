@@ -19,9 +19,9 @@
         <div class="app-section">
           <div class="app-button" id="stopbutton">Stop</div></div>
 <div class="app-section">	      
-<div class="feld1"></div>
-<div class="feld2"></div>
-<div class="feld3"></div></div>  
+<div class="feld1" align="center"></div>
+<div class="feld2" align="center"></div>
+<div class="feld3" align="center"></div></div>  
 	      <div class="app-section" background="schrift.png">
 
        
@@ -137,7 +137,7 @@ startPeristentVibrate(vibrpattern, patternlength);
     .on('click', function () {
 stopVibrate();
 alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
-   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' - ' + pfrequenz + '');
+   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min (' + pfrequenz + ')');
    $(page).find('.feld2').text('Pulsrhythmus: ' + prhythmus + '');
    $(page).find('.feld3').text('Stimmt`s?');
    });
