@@ -71,13 +71,13 @@ prhythmus = "Extrasystole (mit kompensatorischer Pause)"
 pattquotb = Math.round(pattquot - 40 / 1.8);
 pattquotc = Math.round(pattquot - 40 / 2.25);
 pattquotd = Math.round(pattquot + pattquotc);  
-vibrpattern = Array('60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquot + ', 60, ' + pattquotb + ', 40, ' + pattquotd + ', 60, ' + pattquot + '');
+vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot];
 }
 else if (patt == 3) {
 prhythmus = "Pulsus Bigeminus"
 pattquote = Math.round(pattquot - 40 / 4.5);
 pattquotf = Math.round(pattquot - 40 / 1.2857142857142); 
-vibrpattern = Array('60, ' + pattquote + ', 40, ' + pattquotf + '');
+vibrpattern = [60, pattquote, 40, pattquotf];
 }
 else if (patt == 4) {
 prhythmus = "Arrhythmie"
@@ -89,7 +89,7 @@ vibrpattern = Array('60, ' + pattquotb + ', 60, ' + pattquotf + ', 60, ' + pattq
 }
 else {
 prhythmus = "Ruhepuls (Sinusrhythmus)"
-vibrpattern = Array('60, ' + pattquot + '');
+vibrpattern =[60, pattquot];
   
 }    
 alert('Pattern: ' + patt + '!/n Das ist: ' + prhythmus + '!'); 
