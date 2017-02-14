@@ -19,8 +19,9 @@
         <div class="app-section">
           <div class="app-button" id="stopbutton">Stop</div></div>
 <div class="feld1"></div>
-<div><img src="schrift.png" alt="eine grafik"></div>
 <div class="feld2"></div>
+<div class="feld3"></div>	      
+<div><img src="schrift.png" alt="eine grafik"></div>
        
       </div>
     </div>
@@ -69,16 +70,16 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquotb +
 }
 else if (patt == 2) {
 prhythmus = "Extrasystole (mit kompensatorischer Pause)"
-pattquotb = Math.round(pattquot - 40 / 1.8);
-pattquotc = Math.round(pattquot - 40 / 2.25);
+pattquotb = Math.round(pattquot - 40 / 9);
+pattquotc = Math.round(pattquot - 40 / 1.125);
 pattquotd = Math.round(pattquot + pattquotc);  
 vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot];
 patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotd + 60 + pattquot
 }
 else if (patt == 3) {
 prhythmus = "Pulsus Bigeminus"
-pattquote = Math.round(pattquot - 40 / 4.5);
-pattquotf = Math.round(pattquot - 40 / 1.2857142857142); 
+pattquote = Math.round(pattquot - 40 / 9);
+pattquotf = Math.round(pattquot - 40 / 1.125); 
 vibrpattern = [60, pattquote, 40, pattquotf];
 patternlength = 60 + pattquote + 40 + pattquotf
 }
@@ -125,16 +126,17 @@ pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
     alert('Pulsfrequenz: ' + pf + '! /n Pattern: ' + vibrpattern + '! /n vibration fired!');
    $(page).find('.feld1').text("");
-   $(page).find('.feld2').text(pf);
-
+   $(page).find('.feld2').text("");
+   $(page).find('.feld3').text("");
    });
   $(page)
     .find('#stopbutton')
     .on('click', function () {
 stopVibrate();
 alert('Pulsfrequenz: ' + pf + '! /n vibration stopped!'); 
-   $(page).find('.feld1').text("Umdrehen");
-
+   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' - ' + pfrequenz + '');
+   $(page).find('.feld2').text('Pulsrhythmus: ' + prhythmus + '');
+   $(page).find('.feld3').text('Stimmt`s?);
    });
 });
       try {
