@@ -18,10 +18,12 @@
           <div class="app-button" id="startbutton">Start</div></div>
         <div class="app-section">
           <div class="app-button" id="stopbutton">Stop</div></div>
+<div class="app-section">	      
 <div class="feld1"></div>
 <div class="feld2"></div>
-<div class="feld3"></div>	      
-<div><img src="schrift.png" alt="eine grafik"></div>
+<div class="feld3"></div></div>  
+	      <div class="app-section">
+<div><img src="schrift.png" alt="eine grafik"></div></div>
        
       </div>
     </div>
@@ -65,8 +67,8 @@ if (patt == 1) {
 prhythmus = "Extrasystole (ohne kompensatorische Pause)"
 pattquotb = Math.round((pattquot - 40) / 1.8);
 pattquotc = Math.round((pattquot - 40) / 2.25);  
-vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, attquot, 60, pattquot, 60, pattquot];
-patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotc + 60 + attquot + 60 + pattquot + 60 + pattquot
+vibrpattern = [60, pattquot, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquot, 60, pattquot, 60, pattquot];
+patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotc + 60 + pattquot + 60 + pattquot + 60 + pattquot
 }
 else if (patt == 2) {
 prhythmus = "Extrasystole (mit kompensatorischer Pause)"
@@ -87,10 +89,11 @@ else if (patt == 4) {
 prhythmus = "Arrhythmie"
 pattquotb = Math.round((pattquot - 40) / 1.8);
 pattquotc = Math.round((pattquot - 40) / 2.25);
+pattquotd = Math.round(pattquot + pattquotc); 	
 pattquote = Math.round((pattquot - 40) / 4.5);
 pattquotf = Math.round((pattquot - 40) / 1.2857142857142);  
-vibrpattern = [60, pattquotb, 60, pattquotf, 60, pattquotc, 60, pattquotc, 60, pattquote, 60, pattquotb, 60, pattquotf];     
-patternlength = 60 + pattquotb + 60 + pattquotf + 60 + pattquotc + 60 + pattquotc + 60 + pattquote + 60 + pattquotb + 60 + pattquotf
+vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc];     
+patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotd + 60 + pattquot + 60 + pattquotb + 40 + pattquotc
 }
 else {
 prhythmus = "Ruhepuls (Sinusrhythmus)"
