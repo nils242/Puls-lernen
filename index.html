@@ -4,8 +4,22 @@
     <title>Pulsmessung üben</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="app.min.css">
-  </head>
-
+  </head><script>
+function onDeviceReady() {
+	alert('Ist die Device Ready?')
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      
+      // Set AdMobAds options: 
+      admob.setOptions({
+        publisherId:          "ca-app-pub-3599258879952390/6107384263"
+      });
+      
+      // Start showing banners (atomatic when autoShowBanner is set to true) 
+      admob.createBannerView();
+alert('admob läuft')
+    }
+    
+	document.addEventListener("deviceready", onDeviceReady, false);</script>
   <body>
     <div class="app-page" data-page="home">
       <div class="app-topbar">
@@ -17,8 +31,8 @@
         <div class="app-section" style="color:darkgrey;">
           <div class="app-button red" id="stopbutton" style="color:black;">Stop</div></div>
 <div class="app-section">	      
-<div class="feld1" align="center">  </div>
-<div class="feld2" align="center">Drücken Sie "Start" und messen Sie Pulsfrequenz und -rhythmus anhand der Vibration des Smartphones</div>
+<div class="feld1" align="center">Drücken Sie "Start"</div>
+<div class="feld2" align="center">und messen Sie Pulsfrequenz und -rhythmus anhand der Vibration des Smartphones</div>
 <div class="feld3" align="center">  </div>	
 <div class="feld4" align="center">  </div></div>
 <div class="app-section"><div class="app-button" style="height:100px;color:black;" align="center" id="weblink"><img src="schrift.png"><div>www.nilswommelsdorf.de</div></div></div>
@@ -147,20 +161,6 @@ $(page)
       } catch (err) {
         App.load('home');
       }
-function onDeviceReady() {
-      document.removeEventListener('deviceready', onDeviceReady, false);
-      
-      // Set AdMobAds options: 
-      admob.setOptions({
-        publisherId:          "ca-app-pub-3599258879952390/6107384263"
-      });
-      
-      // Start showing banners (atomatic when autoShowBanner is set to true) 
-      admob.createBannerView();
-alert('admob läuft')
-    }
-    
-    document.addEventListener("deviceready", onDeviceReady, false);   
     </script>
   </body>
 </html>
