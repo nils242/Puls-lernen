@@ -27,8 +27,7 @@
     <script src="app.min.js"></script>
     <script>
 App.controller('home', function (page) {
-  // this runs whenever a 'home' page is loaded
-  // 'page' is the HTML app-page element
+ruready = 1
 function pulsfrequenz()
 {
 var pfmin = 45;
@@ -121,17 +120,26 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
   $(page)
     .find('#startbutton')
     .on('click', function () {
+if (ruready == 1) { 
+	alert("läuft!");
 pulsfrequenz()
 pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
    $(page).find('.feld1').text(" ");
    $(page).find('.feld2').text("... Pulsübung startet ...");
    $(page).find('.feld3').text(" ");
-   $(page).find('.feld4').text(" ");	  
+   $(page).find('.feld4').text(" ");
+ruready = 0
+}
+else {
+	return false}
    });
+	
+	
   $(page)
     .find('#stopbutton')
     .on('click', function () {
+ruready = 1;	  
 stopVibrate();
    $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
    $(page).find('.feld2').text('' + pfrequenz + '');  
