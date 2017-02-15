@@ -146,6 +146,142 @@ $(page)
       } catch (err) {
         App.load('home');
       }
+function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      
+      // Set AdMobAds options: 
+      admob.setOptions({
+        publisherId:          "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",  // Required 
+        interstitialAdId:     "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII",  // Optional 
+        tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional 
+        tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional 
+        tappxShare:           0.5                                        // Optional 
+      });
+      
+      // Start showing banners (atomatic when autoShowBanner is set to true) 
+      admob.createBannerView();
+      
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true) 
+      admob.requestInterstitialAd();
+    }
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+If you don't specify tappxId, no tappx requests will be placed (even if you specify a tappxShare). See Tappx configuration for more detailed info.
+Full documentation
+
+Visit the wiki of Google AdMob Cordova plugin. Table of contents:
+
+    Home
+    Table of contents
+    Change Log
+    Testimonials
+    Setup
+    Angular.js, Ionic apps
+    Tappx configuration
+    Javascript API
+        setOptions
+        Banners
+            createBannerView
+            showBannerAd
+            destroyBannerView
+        Interstitials
+            requestInterstitialAd
+            showInterstitialAd
+        In app purchase
+            recordResolution
+            recordPlayBillingResolution
+        Events
+            onAdLoaded
+            onAdFailedToLoad
+            onAdOpened
+            onAdClosed
+            onAdLeftApplication
+            onInAppPurchaseRequested
+    Complete example code
+    Contributing
+    Screenshots
+
+Complete example code
+
+Note that the admob ads are configured inside onDeviceReady(). This is because only after device ready the AdMob Cordova plugin will be working.
+
+ 
+    var isAppForeground = true;
+    
+    function initAds() {
+      if (admob) {
+        var adPublisherIds = {
+          ios : {
+            banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",
+            interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
+          },
+          android : {
+            banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",
+            interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
+          }
+        };
+    	  
+        var admobid = (/(android)/i.test(navigator.userAgent)) ? adPublisherIds.android : adPublisherIds.ios;
+            
+        admob.setOptions({
+          publisherId:      ca-app-pub-3599258879952390/6107384263,
+        });
+ 
+        registerAdEvents();
+        
+      } else {
+        alert('AdMobAds plugin not ready');
+      }
+    }
+    
+    function onAdLoaded(e) {
+      if (isAppForeground) {
+        if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
+          alert("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
+        } else if (e.adType === admob.AD_TYPE_BANNER) {
+          alert("New banner received");
+        }
+      }
+    }
+    
+    function onPause() {
+      if (isAppForeground) {
+        admob.destroyBannerView();
+        isAppForeground = false;
+      }
+    }
+    
+    function onResume() {
+      if (!isAppForeground) {
+        setTimeout(admob.createBannerView, 1);
+        setTimeout(admob.requestInterstitialAd, 1);
+        isAppForeground = true;
+      }
+    }
+    
+    // optional, in case respond to events 
+    function registerAdEvents() {
+      document.addEventListener(admob.events.onAdLoaded, onAdLoaded);
+      document.addEventListener(admob.events.onAdFailedToLoad, function (e) {});
+      document.addEventListener(admob.events.onAdOpened, function (e) {});
+      document.addEventListener(admob.events.onAdClosed, function (e) {});
+      document.addEventListener(admob.events.onAdLeftApplication, function (e) {});
+      document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
+      
+      document.addEventListener("pause", onPause, false);
+      document.addEventListener("resume", onResume, false);
+    }
+        
+    function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      initAds();
+ 
+      // display a banner at startup 
+      admob.createBannerView();
+    }
+    
+    document.addEventListener("deviceready", onDeviceReady, false);	    
     </script>
   </body>
 </html>
