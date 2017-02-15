@@ -70,6 +70,7 @@ var isAppForeground = true;
         
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
+	    alert('ola');
       initAds();
  
       // display a banner at startup 
@@ -198,6 +199,7 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
 if (ruready == 1) {
    $(page).find('#replaybutton').removeClass('app-button').text(''); 		
 	alert("startbt läuft!");
+onDeviceReady()
 pulsfrequenz()
 pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
