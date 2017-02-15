@@ -137,6 +137,7 @@ stopVibrate();
 $(page)
 .find('#weblink')
 .on('click', function () {
+	alert('klick');
 	window.open('http://www.nilswommelsdorf.de','_system');
    });
 
@@ -151,8 +152,8 @@ function onDeviceReady() {
       
       // Set AdMobAds options: 
       admob.setOptions({
-        publisherId:          "ca-app-pub-3599258879952390/6107384263",  // Required 
-
+        publisherId:          "ca-app-pub-3599258879952390/6107384263"
+alert('admob läuft')
       });
       
       // Start showing banners (atomatic when autoShowBanner is set to true) 
