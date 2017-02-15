@@ -31,11 +31,11 @@ alert('admob läuft')
         <div class="app-section" style="color:darkgrey;">
           <div class="app-button red" id="stopbutton" style="color:black;">Stop</div></div>
 <div class="app-section">	      
-<div class="feld1" align="center">Drücken Sie "Start"</div>
+<div class="feld1" align="center" style="font-weight:bold">Drücken Sie "Start"</div>
 <div class="feld2" align="center">und messen Sie Pulsfrequenz und -rhythmus anhand der Vibration des Smartphones</div>
 <div class="feld3" align="center">  </div>	
 <div class="feld4" align="center">  </div></div>
-<div class="app-section"><div class="app-button" style="height:100px;color:black;" align="center" id="weblink" href="http://www.mysite.com/file/news.html" ><img src="schrift.png"><div>www.nilswommelsdorf.de</div></div></div>
+<div class="app-section"><div class="app-button" style="height:100px;color:black;" align="center" id="weblink"><img src="schrift.png"><div>www.nilswommelsdorf.de</div></div></div>
 
    <script src="zepto.js"></script>
     <script src="app.min.js"></script>
@@ -142,7 +142,7 @@ startPeristentVibrate(vibrpattern, patternlength);
     .find('#stopbutton')
     .on('click', function () {
 stopVibrate();
-   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min').css('font-weight', 'bold');
+   $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
    $(page).find('.feld2').text('' + pfrequenz + '');  
    $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '').css('font-weight', 'bold');
    $(page).find('.feld4').text('' + pascii + '');
@@ -152,7 +152,7 @@ $(page)
 .find('#weblink')
 .on('click', function () {
 	alert('klick');
-	window.open('http://www.nilswommelsdorf.de','_system');
+	navigator.app.loadUrl('http://www.nilswommelsdorf.de/', { openExternal:true });
    });
 
 });
