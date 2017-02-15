@@ -19,8 +19,10 @@
 <div class="feld1" align="center" style="font-weight:bold">Drücken Sie "Start"</div>
 <div class="feld2" align="center">und messen Sie Pulsfrequenz und -rhythmus anhand der Vibration des Smartphones</div>
 <div class="feld3" align="center">  </div>	
-<div class="feld4" align="center">  </div></div>
-<div class="app-section"><div class="app-button" href="http://www.nilswommelsdorf.de" style="height:100px;color:black;" align="center" id="weblink"><img src="schrift.png"><div>Version 1.0, www.nilswommelsdorf.de, 2017</div> 
+<div class="feld4" align="center">  </div>
+<div id="replaybutton" style="color:black;"></div></div>	      
+	     
+<div class="app-section"><div class="app-button" href="http://www.nilswommelsdorf.de" style="height:100px;color:black;" align="center" id="weblink"><img src="schrift.png"><div>V 1.0 | www.nilswommelsdorf.de | 2017</div> 
 	      </div></div>
 
    <script src="zepto.js"></script>
@@ -87,7 +89,7 @@ pattquotd = Math.round(pattquot + pattquotc);
 pattquote = Math.round((pattquot - 40) / 4.5);
 pattquotf = Math.round((pattquot - 40) / 1.2857142857142);
 	if (pf >= 90){
-vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquotb, 40, pattquotd60, pattquote, 40, pattquot];     
+vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquotb, 40, pattquotd, 60, pattquote, 40, pattquot];     
 patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotd + 60 + pattquot + 60 + pattquotb + 40 + pattquotc + 60, pattquotb + 40 + pattquotd + 60 + pattquote + 40 + pattquotf
 }
 else{
@@ -120,8 +122,9 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
   $(page)
     .find('#startbutton')
     .on('click', function () {
-if (ruready == 1) { 
-	alert("läuft!");
+if (ruready == 1) {
+   $(page).find('#replaybutton').removeClass('app-button').text(''); 		
+	alert("startbt läuft!");
 pulsfrequenz()
 pulspattern()
 startPeristentVibrate(vibrpattern, patternlength);
@@ -145,7 +148,17 @@ stopVibrate();
    $(page).find('.feld2').text('' + pfrequenz + '');  
    $(page).find('.feld3').text('Pulsrhythmus: ' + prhythmus + '').css('font-weight', 'bold');
    $(page).find('.feld4').text('' + pascii + '');
+   $(page).find('.feld4').text('' + pascii + '');	  
+   $(page).find('#replaybutton').addClass('app-button blue').text('Noch einmal abspielen?'); 
    });
+	
+  $(page)
+    .find('#replaybutton')
+    .on('click', function () {
+	  	alert("replaybt läuft!");
+startPeristentVibrate(vibrpattern, patternlength);
+ruready = 2	  
+   });	
 	    
 $(page)
     .find('#weblink')
