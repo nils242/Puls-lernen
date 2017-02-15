@@ -5,6 +5,14 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.hello-world"
         version   = "1.0.0">
+        
+ <preference name="show-splash-screen-spinner" value="false" />
+<preference name="fullscreen" value="false" />
+<preference name="orientation" value="portrait" />
+<preference name="permissions" value="none"/>
+<preference name="splash-screen-duration" value="10000" />
+<preference name="AutoHideSplashScreen" value="false" />       
+        
  <splash src="splash.png" />       
 <icon src="ldpi.png" platform="android" qualifier="ldpi" />
 <icon src="mdpi.png" platform="android" qualifier="mdpi" />
