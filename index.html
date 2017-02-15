@@ -9,6 +9,7 @@
     <body onload="onDocLoad()" onresize="onResize()">
     <script>
     function onDocLoad() {
+	    alert('ola')
         if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
             document.addEventListener('deviceready', initApp, false);
         } else {
