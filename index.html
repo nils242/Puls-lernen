@@ -4,22 +4,7 @@
     <title>Pulsmessung üben</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="app.min.css">
-  </head><script>
-function onDeviceReady() {
-	alert('Ist die Device Ready?')
-      document.removeEventListener('deviceready', onDeviceReady, false);
-      
-      // Set AdMobAds options: 
-      admob.setOptions({
-        publisherId:          "ca-app-pub-3599258879952390/6107384263"
-      });
-      
-      // Start showing banners (atomatic when autoShowBanner is set to true) 
-      admob.createBannerView();
-alert('admob läuft')
-    }
-    
-	document.addEventListener("deviceready", onDeviceReady, false);</script>
+  </head>
   <body>
     <div class="app-page" data-page="home">
       <div class="app-topbar">
@@ -152,7 +137,7 @@ $(page)
 .find('#weblink')
 .on('click', function () {
 	alert('klick');
-	navigator.app.loadUrl('http://www.nilswommelsdorf.de/', { openExternal:true });
+	cordova.InAppBrowser.open('http://www.nilswommelsdorf.de/', '_self');
    });
 
 });
