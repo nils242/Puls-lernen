@@ -24,8 +24,8 @@
     </author>
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm">
-    <plugin name="cordova-plugin-splashscreen" source="npm">           
+    <plugin name="cordova.plugin.inappbrowser" source="npm">
+    <plugin name="cordova.plugin.splashscreen" source="npm">           
     <gap:plugin name="phonegap-admob" source="npm"/>
  
 </widget>
