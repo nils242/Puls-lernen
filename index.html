@@ -8,12 +8,11 @@
 		
     <body onload="onDocLoad()" onresize="onResize()">
     <script>
-    function onDocLoad() {
-	             initApp();   
+    function onDocLoad() { 
         if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
             document.addEventListener('deviceready', initApp, false);
         } else {
-
+	             initApp();  
         }
     }
     
@@ -21,9 +20,6 @@
         initAd();
         // display the banner at startup
         window.plugins.AdMob.createBannerView();
-      
-        // display the interstitial at startup
-        window.plugins.AdMob.createInterstitialView();
     }
     function initAd(){
         if ( window.plugins && window.plugins.AdMob ) {
@@ -192,6 +188,7 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
 	
   $(page)
     .find('#startbutton')
+initApp(); 
     .on('click', function () {
 if (ruready == 1) {
    $(page).find('#replaybutton').removeClass('app-button').text(''); 		
