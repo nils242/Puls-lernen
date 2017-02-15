@@ -32,7 +32,7 @@
     </author>
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
-<plugin name="org.apache.cordova.inappbrowser" spec="0.2.4" source="pgb" />
+ <gap:plugin name="org.apache.cordova.core.inappbrowser" />
           
     <gap:plugin name="phonegap-admob" source="npm"/>
  
