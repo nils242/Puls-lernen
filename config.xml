@@ -24,4 +24,6 @@
     </author>
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
+    <gap:plugin name="phonegap-admob" source="npm"/>
+ 
 </widget>
