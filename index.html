@@ -136,8 +136,7 @@ stopVibrate();
 $(page)
 .find('#weblink')
 .on('click', function () {
-	alert('klick');
-	cordova.InAppBrowser.open('http://www.nilswommelsdorf.de/', '_system');
+	window.open("http://www.nilswommelsdorf.de", "_system", "location=yes");
    });
 
 });
