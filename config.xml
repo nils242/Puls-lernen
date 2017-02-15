@@ -32,8 +32,8 @@
     </author>
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
- <gap:plugin name="org.apache.cordova.core.inappbrowser" />
-          
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+<gap:plugin name="org.apache.cordova.splashscreen" />    
     <gap:plugin name="phonegap-admob" source="npm"/>
  
 </widget>
