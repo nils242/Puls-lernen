@@ -34,6 +34,6 @@
 
     <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
 <plugin name="cordova-plugin-splashscreen" source="npm"/>
-<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>      
+<gap:plugin name="cordova-plugin-admob" source="npm" />   
  
 </widget>
