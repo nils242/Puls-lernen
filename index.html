@@ -153,12 +153,11 @@ function onDeviceReady() {
       // Set AdMobAds options: 
       admob.setOptions({
         publisherId:          "ca-app-pub-3599258879952390/6107384263"
-alert('admob läuft')
       });
       
       // Start showing banners (atomatic when autoShowBanner is set to true) 
       admob.createBannerView();
-
+alert('admob läuft')
     }
     
     document.addEventListener("deviceready", onDeviceReady, false);   
