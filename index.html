@@ -103,9 +103,9 @@ pattquotc = Math.round((pattquot - 40) / 2.25);
 pattquotd = Math.round(pattquot + pattquotc); 	
 pattquote = Math.round((pattquot - 40) / 4.5);
 pattquotf = Math.round((pattquot - 40) / 1.2857142857142);
-	if (pf >= 90){
-vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquotb, 40, pattquotd, 60, pattquote, 40, pattquot];     
-patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotd + 60 + pattquot + 60 + pattquotb + 40 + pattquotc + 60, pattquotb + 40 + pattquotd + 60 + pattquote + 40 + pattquotf
+	if (pf >= 85){
+vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc, 60, pattquote, 60, pattquotb, 40, pattquotd, 60, pattquote, 40, pattquot, 60, pattquote, ];     
+patternlength = 60 + pattquote + 40 + pattquotf + 60 + pattquot + 60 + pattquot + 60 + pattquotb + 40 + pattquotd + 60 + pattquot + 60 + pattquotb + 40 + pattquotc + 60 + pattquote + 60 + pattquotb + 40 + pattquotd + 60 + pattquote + 40 + pattquotf + 60 + pattquote, 
 }
 else{
 vibrpattern = [60, pattquote, 40, pattquotf, 60, pattquot, 60, pattquot, 60, pattquotb, 40, pattquotd, 60, pattquot, 60, pattquotb, 40, pattquotc];     
@@ -169,9 +169,7 @@ stopVibrate();
 	
   $(page)
     .find('#replaybutton')
-    .on('click', function () {
-admob.createBannerView();
-	  
+    .on('click', function () {  
 if (ruready == 1) {	  
 startPeristentVibrate(vibrpattern, patternlength);
 ruready = 2
