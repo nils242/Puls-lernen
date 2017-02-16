@@ -156,7 +156,7 @@ else {
   $(page)
     .find('#stopbutton')
     .on('click', function () {
-admob.createBannerView();	  
+	  
 ruready = 1;	  
 stopVibrate();
    $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
@@ -170,6 +170,8 @@ stopVibrate();
   $(page)
     .find('#replaybutton')
     .on('click', function () {
+admob.createBannerView();
+	  
 if (ruready == 1) {	  
 startPeristentVibrate(vibrpattern, patternlength);
 ruready = 2
