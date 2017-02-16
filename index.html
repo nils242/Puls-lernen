@@ -9,7 +9,7 @@
     <body onload="onDocLoad()" onresize="onResize()">
     <script>
     function onDocLoad() {
-	    alert('loaded!');
+
         if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
             document.addEventListener('deviceready', initApp, false);
         } else {
@@ -24,6 +24,7 @@
     }
     function initAd(){
         if ( window.plugins && window.plugins.AdMob ) {
+			    alert('loaded!');
     	    var ad_units = {
 				ios : {
 				},
@@ -209,6 +210,7 @@ else {
   $(page)
     .find('#stopbutton')
     .on('click', function () {
+initApp();	  
 ruready = 1;	  
 stopVibrate();
    $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
