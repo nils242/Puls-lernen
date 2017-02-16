@@ -22,7 +22,7 @@
 <icon src="xxhdpi.png" platform="android" qualifier="xxhdpi" />
 <icon src="fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />        
         
-  <name>Pulsmessung üben</name>
+  <name>Pulslehrer - Pulsmessung üben</name>
 
   <description>
       Die Messung verschiedener Pulsarten durch Vibrationsmuster des Smartphones üben
