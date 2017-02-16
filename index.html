@@ -6,73 +6,19 @@
     <link rel="stylesheet" href="app.min.css">
   </head>
 		
-    <body onload="onDocLoad()" onresize="onResize()">
+    <body>
     <script>
-    function onDocLoad() {
+function onDeviceReady() {
+    document.removeEventListener('deviceready', onDeviceReady, false);
 
-        if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
-            document.addEventListener('deviceready', initApp, false);
-        } else {
-	             initApp();  
-        }
-    }
-    
-    function initApp() {
-        initAd();
-        // display the banner at startup
-        window.plugins.AdMob.createBannerView();
-    }
-    function initAd(){
-        if ( window.plugins && window.plugins.AdMob ) {
-			    alert('loaded!');
-    	    var ad_units = {
-				ios : {
-				},
-				android : {
-					banner: 'ca-app-pub-3599258879952390~4630651065'
-				},
-				wp8 : {
+    // Set AdMobAds options:
+    admob.setOptions({
+        publisherId:          "ca-app-pub-3599258879952390~4630651065",  // Required
+    });
+}
 
-				}
-    	    };
-    	    var admobid = "";
-    	    if( /(android)/i.test(navigator.userAgent) ) {
-    	    	admobid = ad_units.android;
-    	    } else if(/(iphone|ipad)/i.test(navigator.userAgent)) {
-    	    	admobid = ad_units.ios;
-    	    } else {
-    	    	admobid = ad_units.wp8;
-    	    }
-            window.plugins.AdMob.setOptions( {
-                publisherId: admobid.banner,
-                interstitialAdId: admobid.interstitial,
-                bannerAtTop: false, // set to true, to put banner at top
-                overlap: false, // set to true, to allow banner overlap webview
-                offsetTopBar: false, // set to true to avoid ios7 status bar overlap
-                isTesting: true, // receiving test ad
-                autoShow: true // auto show interstitial ad when loaded
-            });
-            registerAdEvents();
-            
-        } else {
-            alert( 'admob plugin not ready' );
-        }
-    }
-	// optional, in case respond to events
-    function registerAdEvents() {
-    	document.addEventListener('onReceiveAd', function(){});
-        document.addEventListener('onFailedToReceiveAd', function(data){});
-        document.addEventListener('onPresentAd', function(){});
-        document.addEventListener('onDismissAd', function(){ });
-        document.addEventListener('onLeaveToAd', function(){ });
-        document.addEventListener('onReceiveInterstitialAd', function(){ });
-        document.addEventListener('onPresentInterstitialAd', function(){ });
-        document.addEventListener('onDismissInterstitialAd', function(){ });
-    }
-    function onResize() {
-        var msg = 'web view: ' + window.innerWidth + ' x ' + window.innerHeight;
-        document.getElementById('sizeinfo').innerHTML = msg;
-    }
+document.addEventListener("deviceready", onDeviceReady, false);
+
     </script>
     <div class="app-page" data-page="home">
       <div class="app-topbar">
@@ -210,7 +156,7 @@ else {
   $(page)
     .find('#stopbutton')
     .on('click', function () {
-initApp();	  
+admob.createBannerView();	  
 ruready = 1;	  
 stopVibrate();
    $(page).find('.feld1').text('Pulsfrequenz: ' + pf + ' 1/min');
