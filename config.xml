@@ -35,7 +35,7 @@
 <plugin name="cordova.plugin.vibration" spec="https://github.com/apache/cordova-plugin-vibration.git" />
 <plugin name="cordova-plugin-splashscreen" source="npm"/>     
 <plugin name="cordova-plugin-whitelist" source="npm"/>
-<plugin name="cordova-plugin-country" source="npm"/> 
+<plugin name=" cordova-plugin-globalization" source="npm"/> 
         
 <allow-intent href="http://*/*" />
 <access origin="*" />        
