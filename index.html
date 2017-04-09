@@ -125,6 +125,9 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
   $(page)
     .find('#startbutton')
     .on('click', function () {
+	  function success (countryCode) {
+  alert(countryCode);
+}
 if (ruready == 1) {
    $(page).find('#replaybutton').removeClass('app-button').text(''); 		
 pulsfrequenz()
