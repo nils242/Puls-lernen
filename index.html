@@ -126,8 +126,8 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
     .find('#startbutton')
     .on('click', function () {
 navigator.globalization.getPreferredLanguage(
-    function (language) {alert('language: ' + language.value + '\n');},
-    function () {alert('Error getting language\n');}
+    function (language) {alert('language: ' + language.value + '\n');
+    function () {alert('Error getting language\n')
 );
 }
 if (ruready == 1) {
