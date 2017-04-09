@@ -125,8 +125,10 @@ patternlength = 60 + pattquot + 60 + pattquot + 60 + pattquot + 60 + pattquot + 
   $(page)
     .find('#startbutton')
     .on('click', function () {
-	  function success (countryCode) {
-  alert(countryCode);
+navigator.globalization.getPreferredLanguage(
+    function (language) {alert('language: ' + language.value + '\n');},
+    function () {alert('Error getting language\n');}
+);
 }
 if (ruready == 1) {
    $(page).find('#replaybutton').removeClass('app-button').text(''); 		
